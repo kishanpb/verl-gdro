@@ -303,7 +303,7 @@ class PassKOnlineClassifier(_BasePromptClassifier):
             if raw_bin != prev:
                 # Boundary between k and k+1
                 if self.edges is None:
-                    boundary = (min(prev, raw_bin)) / self.num_bins if raw_bin < prev else (max(prev, raw_bin)) / self.num_bins
+                    boundary = (min(prev, raw_bin) + 1) / self.num_bins
                 else:
                     # For custom edges, boundary is edges[min(prev, raw_bin)]
                     idx = min(prev, raw_bin)
